@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
 import Statistique from '../Statistique/Statistique';
-import { Routes, Route, Link } from 'react-router-dom';
 import Insertion from '../Insertion/Insertion';
 import Validation from '../Validation/Validation';
 
@@ -14,12 +13,10 @@ function Accueil() {
         <div className="navigation">
           <ul>
             <li>
-              <a href="#">
                 <span className="icon">
                   <ion-icon name="logo-apple"></ion-icon>
                 </span>
                 <span className="title">Admin</span>
-              </a>
             </li>
 
             <li

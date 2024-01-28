@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function Boite() {
-    const navigate = useNavigate();
   const apiUrl = 'https://okazy-production.up.railway.app/boitevitesses';
   const token = localStorage.getItem('token');
   

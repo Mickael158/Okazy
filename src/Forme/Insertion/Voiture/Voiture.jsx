@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 function Voiture() {
   const apiUrl = 'https://okazy-production.up.railway.app/marques';
   const token = localStorage.getItem('token');
@@ -35,10 +34,9 @@ function Voiture() {
         setIdMarque(event.target.value);
         
     }
-   {/* ---------------------------------------------------------------------------------------------------------- */}
+   /* ---------------------------------------------------------------------------------------------------------- */
     const apiUrlModel = 'https://okazy-production.up.railway.app/models';
-    const tokenModel = localStorage.getItem('token');
-  
+    
     const [model, setModel] = useState([]);
   
     useEffect(() => {
@@ -68,10 +66,8 @@ function Voiture() {
     const handlerChangModel = (event) => {
         setIdModel(event.target.value);
     } 
-    {/* ---------------------------------------------------------------------------------------------------------- */}
+    /* ---------------------------------------------------------------------------------------------------------- */
     const apiUrlCassis = 'https://okazy-production.up.railway.app/cassiss';
-    const tokenCassis = localStorage.getItem('token');
-  
     const [cassi, setCassis] = useState([]);
   
     useEffect(() => {
@@ -97,16 +93,9 @@ function Voiture() {
   
       fetchData();
     }, [apiUrlCassis, token]); 
-    const [idCassis , setIdCassi] = useState('');
-    const handlerChangCassis = (event) => {
-        setIdCassi(event.target.value);
-    } 
-    {/* ---------------------------------------------------------------------------------------------------------- */}
-    const navigate = useNavigate();
+    const [idCassis ] = useState('');
+    /* ---------------------------------------------------------------------------------------------------------- */
   const apiUrlVoitures = 'https://okazy-production.up.railway.app/voitures';
-  const tokenVoitures = localStorage.getItem('token');
-  
-  const [nom, setNom] = useState('');
 
   const [puissancefiscale , setPuissancefiscale] = useState('');
   const [cylindre, setCylindre] = useState('');
@@ -145,7 +134,7 @@ function Voiture() {
     };
 	
     try {
-      const response = await fetch(apiUrl, requestOptions);
+      const response = await fetch(apiUrlVoitures, requestOptions);
 		
       if (!response.ok) {
         throw new Error('La requête a échoué.');
