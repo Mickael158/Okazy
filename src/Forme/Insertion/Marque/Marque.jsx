@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 
 function Marque() {
-  const navigate = useNavigate();
   const apiUrl = 'https://okazy-production.up.railway.app/marques';
   const token = localStorage.getItem('token');
   

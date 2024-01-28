@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function OptionDivertissements() {
-    const navigate = useNavigate();
     const apiUrl = 'https://okazy-production.up.railway.app/optiondivertissements';
     const token = localStorage.getItem('token');
     

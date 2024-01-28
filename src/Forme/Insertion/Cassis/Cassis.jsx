@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function Cassis() {
-    const navigate = useNavigate();
   const apiUrl = 'https://okazy-production.up.railway.app/cassiss';
   const token = localStorage.getItem('token');
   

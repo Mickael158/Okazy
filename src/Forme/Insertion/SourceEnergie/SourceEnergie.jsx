@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function SourceEnergie() {
-    const navigate = useNavigate();
     const apiUrl = 'https://okazy-production.up.railway.app/sourceenergies';
     const token = localStorage.getItem('token');
     

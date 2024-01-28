@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function SystemeFreinage() {
-    const navigate = useNavigate();
     const apiUrl = 'https://okazy-production.up.railway.app/systemfreinages';
     const token = localStorage.getItem('token');
     
