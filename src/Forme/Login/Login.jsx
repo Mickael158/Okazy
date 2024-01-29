@@ -7,12 +7,14 @@ export function Login() {
 	const navigate = useNavigate();
   const apiUrl = 'https://okazy-production.up.railway.app/authentication/login';
   
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('bobman');
+  const [password, setPassword] = useState('123456');
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-	
+    
 
     const requestOptions = {
       method: 'POST',

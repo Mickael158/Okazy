@@ -22,14 +22,14 @@ function Annonce() {
             }
             const data = await response.json();
             setAnnonce(data.data);
-            console.log(data.data)
+            console.log( annonce.length);
           } catch (error) {
             console.error('Erreur lors de la requête à l\'API:', error);
           }
         };
     
         fetchData();
-      }, [apiUrlAnnoce, token]); 
+      }, ); 
   
      
     
