@@ -93,7 +93,10 @@ function Voiture() {
   
       fetchData();
     }, [apiUrlCassis, token]); 
-    const [idCassis ] = useState('');
+    const [idCassis , setIdCassis] = useState('');
+    const handlerChangCassis = (event) => {
+      setIdCassis(event.target.value);
+  } 
     /* ---------------------------------------------------------------------------------------------------------- */
   const apiUrlVoitures = 'https://okazy-production.up.railway.app/voitures';
 
@@ -180,7 +183,7 @@ function Voiture() {
           </div>
           <div className="formbold-mb-3">
             <label className="formbold-form-label">Cassis</label>
-              <select className="formbold-form-input" value={idModel} onChange={handlerChangModel}>
+              <select className="formbold-form-input" value={idCassis} onChange={handlerChangCassis}>
               {cassi.map((individualCassis, index) => (
                       <option key={index} value={individualCassis.id}>
                         {individualCassis.nom}

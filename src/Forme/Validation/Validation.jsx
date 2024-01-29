@@ -33,7 +33,7 @@ function Validation() {
 
     const handleSubmit = async (e, id)  => {
       e.preventDefault();
-      const apiUrlValide = `https://okazy-production.up.railway.app/annonces/${id}/validate`;
+      const apiUrlValide = `https://okazy-production.up.railway.app/annonces/validate/${id}`;
       const requestOptions = {
         method: 'PUT',
         headers: {

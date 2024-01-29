@@ -35,7 +35,6 @@ function OptionDivertissements() {
   return <>
   <div className="formbold-main-wrapper">
     <div className="formbold-form-wrapper">
-      <img src="your-image-url-here.jpg" alt="Your Alt Text" />
       <form onSubmit={handleSubmit}>
         <div className="formbold-input-wrapp formbold-mb-3">
           <label htmlFor="firstname" className="formbold-form-label"> Option Divertissement </label>

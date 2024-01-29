@@ -79,10 +79,10 @@ function Accueil() {
               </label>
             </div> */}
 
-            <div className="user">
+            {/* <div className="user">
                   <img className="img-profile rounded-circle" src="./boy.png" alt='Admin'></img>
                   <span className="ml-2 d-none d-lg-inline text-white small"></span>
-            </div>
+            </div> */}
           </div>
           {page === 0 && <Statistique />}
           {page === 1 && <Insertion />}

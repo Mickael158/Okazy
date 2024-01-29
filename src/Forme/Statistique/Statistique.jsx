@@ -1,15 +1,186 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import './vendor/bootstrap/css/bootstrap.min.css';
 
 function Statistique() {
+  const token = localStorage.getItem('token');
+    const apiUrlVente = 'https://okazy-production.up.railway.app/venteavgs';
+      
+      const [vente, setVente] = useState([]);
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          const requestOptions = {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          try {
+            const response = await fetch(apiUrlVente, requestOptions);
+            if (!response.ok) {
+              throw new Error('La requête a échoué.');
+            }
+            const data = await response.json();
+            setVente(data.data);
+          } catch (error) {
+            console.error('Erreur lors de la requête à l\'API:', error);
+          }
+        };
+    
+        fetchData();
+      }, [apiUrlVente, token]); 
+    ///////////////////////////////////////////////////////////////////////////////////
+    const apiUrlBenefice = 'https://okazy-production.up.railway.app/benefs';
+      
+      const [benefice, setBenefice] = useState([]);
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          const requestOptions = {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          try {
+            const response = await fetch(apiUrlBenefice, requestOptions);
+            if (!response.ok) {
+              throw new Error('La requête a échoué.');
+            }
+            const data = await response.json();
+            setBenefice(data.data);
+          } catch (error) {
+            console.error('Erreur lors de la requête à l\'API:', error);
+          }
+        };
+    
+        fetchData();
+      }, [apiUrlBenefice, token]); 
+      ///////////////////////////////////////////////////////////////////////////
+      const apiUrlNbrAnnonce = 'https://okazy-production.up.railway.app/annonces/nonvalides/count';
+      
+      const [count, setCount] = useState('');
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          const requestOptions = {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          try {
+            const response = await fetch(apiUrlNbrAnnonce, requestOptions);
+            if (!response.ok) {
+              throw new Error('La requête a échoué.');
+            }
+            const data = await response.json();
+            setCount(data.data);
+          } catch (error) {
+            console.error('Erreur lors de la requête à l\'API:', error);
+          }
+        };
+    
+        fetchData();
+      }, [apiUrlNbrAnnonce, token]); 
+
+    ////////////////////////////////////////////////////////////////////////////
+    const apiUrlNbrVente = 'https://okazy-production.up.railway.app/ventes/count';
+      
+      const [NbrVente, setNbrVente] = useState('');
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          const requestOptions = {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          try {
+            const response = await fetch(apiUrlNbrVente, requestOptions);
+            if (!response.ok) {
+              throw new Error('La requête a échoué.');
+            }
+            const data = await response.json();
+            setNbrVente(data.data);
+          } catch (error) {
+            console.error('Erreur lors de la requête à l\'API:', error);
+          }
+        };
+    
+        fetchData();
+      }, [apiUrlNbrVente, token]); 
+    //////////////////////////////////////////////////////////////////////////////
+
+    const apiUrlNbrUtilisateur = 'https://okazy-production.up.railway.app/user/count';
+      
+      const [nbrUtilisateur, setNbrUtilisateur] = useState('');
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          const requestOptions = {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          try {
+            const response = await fetch(apiUrlNbrUtilisateur, requestOptions);
+            if (!response.ok) {
+              throw new Error('La requête a échoué.');
+            }
+            const data = await response.json();
+            setNbrUtilisateur(data.data);
+          } catch (error) {
+            console.error('Erreur lors de la requête à l\'API:', error);
+          }
+        };
+    
+        fetchData();
+      }, [apiUrlNbrUtilisateur, token]); 
+    /////////////////////////////////////////////////////////////////////////////////////////
+
+    const apiUrlNbrBenefice = 'https://okazy-production.up.railway.app/annonces/valides/count';
+      
+      const [nbrBenefice, setNbrBenefice] = useState('');
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          const requestOptions = {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          };
+          try {
+            const response = await fetch(apiUrlNbrBenefice, requestOptions);
+            if (!response.ok) {
+              throw new Error('La requête a échoué.');
+            }
+            const data = await response.json();
+            setNbrBenefice(data.data);
+          } catch (error) {
+            console.error('Erreur lors de la requête à l\'API:', error);
+          }
+        };
+    
+        fetchData();
+      }, [apiUrlNbrBenefice, token]); 
   return (
     <>
       <div className="cardBox">
         <div className="card">
           <div>
-            <div className="numbers">1,504</div>
-            <div className="cardName">Daily Views</div>
+            <div className="numbers">{count}</div>
+            <div className="cardName">Annonce non Valide</div>
           </div>
 
           <div className="iconBx">
@@ -19,8 +190,8 @@ function Statistique() {
 
         <div className="card">
           <div>
-            <div className="numbers">80</div>
-            <div className="cardName">Sales</div>
+            <div className="numbers">{NbrVente}</div>
+            <div className="cardName">Nombre de vente</div>
           </div>
 
           <div className="iconBx">
@@ -30,8 +201,8 @@ function Statistique() {
 
         <div className="card">
           <div>
-            <div className="numbers">284</div>
-            <div className="cardName">Comments</div>
+            <div className="numbers">{nbrUtilisateur}</div>
+            <div className="cardName">Nombre utilisateur</div>
           </div>
 
           <div className="iconBx">
@@ -41,8 +212,8 @@ function Statistique() {
 
         <div className="card">
           <div>
-            <div className="numbers">$7,842</div>
-            <div className="cardName">Earning</div>
+            <div className="numbers">{nbrBenefice}</div>
+            <div className="cardName">Annonce pas vendu</div>
           </div>
 
           <div className="iconBx">
@@ -52,156 +223,58 @@ function Statistique() {
       </div>
     {/* ----------------------------------------------------------------------------------------------- */}
     <center>
-      <div class="main-container1">
-        <div class=".year-stats1">
-          <div class="month-group1">
-            <div class="bar h-100"></div>
-            <p class="month">Janvier</p>
+          <div className="cardHeader">
+            <h2>Vente par Mois</h2>
           </div>
-          <div class="month-group1">
-            <div class="bar h-100"></div>
-            <p class="month">Fevrier</p>
+      <div className="main-container1">
+        <div className=".year-stats1">
+          {vente.map((stat, index) => (
+          <div className="month-group1"key={index}>
+            <div className={`bar h-${stat.value}`} ></div>
+            <p className="month">{stat.mois}</p>
           </div>
-          <div class="month-group1">
-            <div class="bar h-100"></div>
-            <p class="month">Mars</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-25"></div>
-            <p class="month">Avril</p>
-          </div>
-          <div class="month-group1 selected">
-            <div class="bar h-100"></div>
-            <p class="month">Mai</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-50"></div>
-            <p class="month">Juin</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-75"></div>
-            <p class="month">Juillet</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-25"></div>
-            <p class="month">Août</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-50"></div>
-            <p class="month">Septembre</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-75"></div>
-            <p class="month">Octobre</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-25"></div>
-            <p class="month">Novembre</p>
-          </div>
-          <div class="month-group1">
-            <div class="bar h-100"></div>
-            <p class="month">Desembre</p>
-          </div>
+          ))}
         </div>
       </div>
       
-    </center>          
+    </center> 
+             
     {/* ----------------------------------------------------------------------------------------------- */}
-      <div className="details">
-        <div className="recentOrders">
-          <div className="cardHeader">
-            <h2>Recent Orders</h2>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Payment</td>
-                <td>Status</td>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Star Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td>
-                  <span className="status delivered">Delivered</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Dell Laptop</td>
-                <td>$110</td>
-                <td>Due</td>
-                <td>
-                  <span className="status pending">Pending</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Apple Watch</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td>
-                  <span className="status return">Return</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Addidas Shoes</td>
-                <td>$620</td>
-                <td>Due</td>
-                <td>
-                  <span className="status inProgress">In Progress</span>
-                </td>
-              </tr>
-              {/* Ajoutez d'autres lignes au besoin */}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="recentCustomers">
-          <div className="cardHeader">
-            <h2>Recent Customers</h2>
-          </div>
-
-          <table>
-            <tbody>
-              <tr>
-                <td width="60px">
-                  <div className="imgBx">
-                    <img src="assets/imgs/customer02.jpg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <h4>
-                    David <br /> <span>Italy</span>
-                  </h4>
-                </td>
-              </tr>
-
-              <tr>
-                <td width="60px">
-                  <div className="imgBx">
-                    <img src="assets/imgs/customer01.jpg" alt="" />
-                  </div>
-                </td>
-                <td>
-                  <h4>
-                    Amit <br /> <span>India</span>
-                  </h4>
-                </td>
-              </tr>
-
-              {/* Ajoutez d'autres lignes au besoin */}
-            </tbody>
-          </table>
-        </div>
-      </div>
+    
+    <div className="row">
+                <div className="col-lg-12">
+                    <div className="card mb-4">
+                        <div className="container-fluid" id="container-wrapper">
+                        <div className="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 className="m-0 font-weight-bold text-primary">Benefice par Anne Pour chaque Marque</h1>
+                        </div>
+                        </div>
+                        <div className="table-responsive p-3">
+                            <table className="table align-items-center table-flush" id="dataTable">
+                                <thead className="thead-light">
+                                <tr>
+                                  <td>Date</td>
+                                  <td>Marque</td>
+                                  <td>Benefice</td>
+                                  <td>Pourcentage</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {benefice.map((bene, index) => (
+                                    <tr key={index}> 
+                                    <td>{bene.annee}</td>
+                                    <td>{bene.marque.nom}</td>
+                                    <td>{bene.benef} Ar</td>
+                                    <td>{bene.pourcentage}</td>
+                                  </tr>
+                                  ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+     
     </>
   );
 }
