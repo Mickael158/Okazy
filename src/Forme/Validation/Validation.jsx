@@ -70,16 +70,18 @@ function Validation() {
               <table className="table align-items-center table-flush" id="dataTable">
                 <thead className="thead-light">
                   <tr>
-                    <th>Marque</th>
-                    <th>Proprietaire</th>
-                    <th>Prix</th>
-                    <th>Description</th>
-                    <th>Valider</th>
+                      <th>Proprietaire</th>
+                      <th>Marque</th>
+                      <th>Proprietaire</th>
+                      <th>Prix</th>
+                      <th>Description</th>
+                      <th>Valider</th>
                   </tr>
                 </thead>
                 <tbody>
                 {annonces.map((annonce, index) => (
   <tr key={index}>
+    <td>{annonce.utilisateur.nom}</td>
     <td>{annonce.voiture.marque.nom}</td>
     <td>{annonce.date}</td>
     <td>{annonce.titre}</td>

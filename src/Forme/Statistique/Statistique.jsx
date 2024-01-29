@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import './vendor/bootstrap/css/bootstrap.min.css';
 
 function Statistique() {
   return (
@@ -50,7 +51,61 @@ function Statistique() {
         </div>
       </div>
     {/* ----------------------------------------------------------------------------------------------- */}
-    
+    <center>
+      <div class="main-container1">
+        <div class=".year-stats1">
+          <div class="month-group1">
+            <div class="bar h-100"></div>
+            <p class="month">Janvier</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-100"></div>
+            <p class="month">Fevrier</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-100"></div>
+            <p class="month">Mars</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-25"></div>
+            <p class="month">Avril</p>
+          </div>
+          <div class="month-group1 selected">
+            <div class="bar h-100"></div>
+            <p class="month">Mai</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-50"></div>
+            <p class="month">Juin</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-75"></div>
+            <p class="month">Juillet</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-25"></div>
+            <p class="month">Août</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-50"></div>
+            <p class="month">Septembre</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-75"></div>
+            <p class="month">Octobre</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-25"></div>
+            <p class="month">Novembre</p>
+          </div>
+          <div class="month-group1">
+            <div class="bar h-100"></div>
+            <p class="month">Desembre</p>
+          </div>
+        </div>
+      </div>
+      
+    </center>          
     {/* ----------------------------------------------------------------------------------------------- */}
       <div className="details">
         <div className="recentOrders">

@@ -3,6 +3,7 @@ import './style.css';
 import Statistique from '../Statistique/Statistique';
 import Insertion from '../Insertion/Insertion';
 import Validation from '../Validation/Validation';
+import Modification from '../Modification/Modification';
 
 function Accueil() {
   const [page, setPage] = useState(0);
@@ -43,6 +44,17 @@ function Accueil() {
 
             <li
               onClick={() => {
+                setPage(3);
+              }}
+            >
+              <span className="icon">
+                <ion-icon name="people-outline"></ion-icon>
+              </span>
+              <span className="title">Modification</span>
+            </li>
+
+            <li
+              onClick={() => {
                 setPage(2);
               }}
             >
@@ -59,21 +71,23 @@ function Accueil() {
             <div className="toggle">
               <ion-icon name="menu-outline"></ion-icon>
             </div>
-
+{/* 
             <div className="search">
               <label>
                 <input type="text" placeholder="Search here" />
                 <ion-icon name="search-outline"></ion-icon>
               </label>
-            </div>
+            </div> */}
 
             <div className="user">
-              <img src="assets/imgs/customer01.jpg" alt="" />
+                  <img className="img-profile rounded-circle" src="./boy.png" alt='Admin'></img>
+                  <span className="ml-2 d-none d-lg-inline text-white small"></span>
             </div>
           </div>
           {page === 0 && <Statistique />}
           {page === 1 && <Insertion />}
           {page === 2 && <Validation />}
+          {page === 3 && <Modification />}
         </div>
       </div>
 

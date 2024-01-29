@@ -1,8 +1,55 @@
+.main-container1 {
+	background: #444e80;
+	color: #abafc6;
+	border-radius: 10px;
+	padding: 20px;
+	width: 940px;
+	height: 200px;
+}
+.year-stats1 {
+	white-space: nowrap;
+	max-height: 170px;
+	overflow: hidden;
+}
 
+.year-stats1:hover {
+	overflow-x: auto;
+}
+.month-group1 {
+	cursor: pointer;
+	max-width: 400px;
+	height: 110px;
+	margin: 10px;
+	display: inline-block;
+}
+.month-group1:hover .bar,
+.selected .bar {
+	background: #5397d6;
+}
 
+.month-group1:hover p,
+.selected p {
+	color: #fff;
+}
+.bar {
+	background-color: #abafc6;
+	width: 20px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
 
+.month-group:hover .bar,
+.selected .bar {
+	background: #5397d6;
+}
 
-
+.stats-info {
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: relative;
+}
 /* =========== Google Fonts ============ */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
